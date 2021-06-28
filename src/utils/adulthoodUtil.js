@@ -1,8 +1,9 @@
 const moment = require('moment');
 const constants = require('./constants');
 
-module.exports = (bornMonth, bornYear) => {
+module.exports = (bornDay, bornMonth, bornYear) => {
 
+    const currentDay = moment().date();
     const currentMonth = moment().month();
     const currentYear = moment().year();
 
@@ -14,7 +15,8 @@ module.exports = (bornMonth, bornYear) => {
 
     if (yearsOldByYear == constants.adulthood) {
         if (currentMonth > bornMonth) {
-            return true;
+            if(currentDay >= bornDay)
+                return true;
         }
     }
 }
