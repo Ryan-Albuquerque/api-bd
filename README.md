@@ -39,7 +39,7 @@ ROUTES:
         },
         "phoneContacts":{
             type: Array,
-            default: false
+            required: true
         }
       }
     }
