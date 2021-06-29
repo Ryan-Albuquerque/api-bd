@@ -108,7 +108,7 @@ const _createUser = async (req,res,next) => {
 
     if(!adulthoodUtil(bornDate)){
         return res.status(400).json({
-            message: "Você deve ser maior de 18 anos para efeturar cadastro"
+            message: "Você deve ser maior de 18 anos para efetuar cadastro"
         })
     }
 
@@ -181,7 +181,7 @@ const _updateUser = async (req,res,next) =>{
 
     if(bornDate && !adulthoodUtil(bornDate)){
         return res.status(400).json({
-            message: "Você deve ser maior de 18 anos para efeturar cadastro"
+            message: "Você deve ser maior de 18 anos para efetuar cadastro"
         })
     }
     
