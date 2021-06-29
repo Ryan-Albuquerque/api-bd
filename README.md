@@ -1,6 +1,15 @@
 # api-bd
 API to create and manage users
 
+# Setup
+1. Clone the repository
+2. Copy and paste, and complete '.env'
+3. Run 'npm install'
+4. Run 'npm run dev' to development mode or 'npm run start'
+5. Enjoy!
+
+# Informations
+
 Stack/Technology: Node.js, MongoDB, Mongoose, Moment, Axios, Express, Cors, Dotenv;
 
 Public URL: [API](https://api-bemoldigital.herokuapp.com)
