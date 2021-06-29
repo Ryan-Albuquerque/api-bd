@@ -1,11 +1,15 @@
 const moment = require('moment');
 const constants = require('./constants');
 
-module.exports = (bornDay, bornMonth, bornYear) => {
+module.exports = (bornDate) => {
 
     const currentDay = moment().date();
     const currentMonth = moment().month();
     const currentYear = moment().year();
+
+    const bornYear = moment(bornDate).year();
+    const bornMonth = moment(bornDate).month()+1;
+    const bornDay = moment(bornDate).date();
 
     const yearsOldByYear = currentYear - bornYear;
 

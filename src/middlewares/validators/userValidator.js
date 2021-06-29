@@ -1,9 +1,9 @@
 const userService = require('../../services/userService');
 const validatorService = require('../../services/validatorService');
 
-const moment = require('moment');
 const cepService = require('../../services/cepService');
 const adulthoodUtil = require('../../utils/adulthoodUtil');
+const formatDateUtil = require('../../utils/formatDateUtil');
 
 let userValidator = {};
 
@@ -100,13 +100,13 @@ const _createUser = async (req,res,next) => {
         })
     }
     
-    if( typeof moment(bornDate).date() !== 'number' || typeof moment(bornDate).month() !== 'number' || typeof moment(bornDate).year() !== 'number'){
+    if( !formatDateUtil(bornDate)){
         return res.status(400).json({
             message: "Data de nascimento não é válida"
         })
     }
 
-    if(!adulthoodUtil(moment(bornDate).month(), moment(bornDate).year())){
+    if(!adulthoodUtil(bornDate)){
         return res.status(400).json({
             message: "Você deve ser maior de 18 anos para efeturar cadastro"
         })
@@ -173,13 +173,13 @@ const _updateUser = async (req,res,next) =>{
         })
     }
 
-    if(bornDate && (typeof moment(bornDate).date() !== 'number' || typeof moment(bornDate).month() !== 'number' || typeof moment(bornDate).year() !== 'number')){
+    if(bornDate && !formatDateUtil(bornDate)){
         return res.status(400).json({
             message: "Data de nascimento não é válida"
         })
     }
 
-    if(bornDate && !adulthoodUtil(moment(bornDate).date(), moment(bornDate).month(), moment(bornDate).year())){
+    if(bornDate && !adulthoodUtil(bornDate)){
         return res.status(400).json({
             message: "Você deve ser maior de 18 anos para efeturar cadastro"
         })
